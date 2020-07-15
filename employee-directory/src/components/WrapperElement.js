@@ -1,12 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import Table from "./Table.js";
 
-function WrapperElement()
+class WrapperElement extends Component
 {
-    return(
-        <div>
-            
-        </div>
-    );
-}   
+    state = {
+        filter: ""
+    };
+
+    render()
+    {
+        return (
+            <Router>
+                <div>
+                    <Route path="/" component={Table}/>
+                </div>
+            </Router>
+        );
+    }
+}
 
 export default WrapperElement;
