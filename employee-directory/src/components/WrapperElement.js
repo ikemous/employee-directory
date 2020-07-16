@@ -9,12 +9,22 @@ class WrapperElement extends Component
         filter: ""
     };
 
+    handleClick = event => {
+        const value = event.target.value();
+        this.setState({
+            filter: value
+        });
+    };
+
     render()
     {
         return (
             <Router>
-                <div>
-                    <Route path="/" component={Form}/>
+                <div className="container">
+                    <Route path="/">
+                        <Form />
+                        <Table />
+                    </Route>
                 </div>
             </Router>
         );
