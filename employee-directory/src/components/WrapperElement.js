@@ -9,12 +9,20 @@ class WrapperElement extends Component
         filter: ""
     };
 
-    handleClick = event => {
-        const value = event.target.value();
+    handleSearch = event => {
+
+    };
+
+    handleChangeInput = event => {
+        const name = event.target.name;
+        const value = event.target.value;
+
         this.setState({
-            filter: value
+            [name]: value
         });
     };
+
+    handleChange
 
     render()
     {
@@ -22,7 +30,7 @@ class WrapperElement extends Component
             <Router>
                 <div className="container">
                     <Route path="/">
-                        <Form />
+                        <Form handleSearch={this.handleSearch} handleChangeInput={this.handleChangeInput} filter={this.state.filter} />
                         <Table />
                     </Route>
                 </div>
