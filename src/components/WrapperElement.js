@@ -30,7 +30,11 @@ class WrapperElement extends Component
             <Router>
                 <div className="container">
                     <Route path="/">
-                        <Form handleSearch={this.handleSearch} handleChangeInput={this.handleChangeInput} filter={this.state.filter} />
+                        <Form 
+                            handleSearch={this.handleSearch} 
+                            handleChangeInput={this.handleChangeInput} 
+                            filter={this.state.filter} 
+                        />
                         <Table />
                     </Route>
                 </div>
