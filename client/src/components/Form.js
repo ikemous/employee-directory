@@ -3,7 +3,7 @@ import React from "react";
 function Form({filter, setFilter})
 {
     return (
-        <div className="input-group">
+        <form className="input-group">
             <input 
                 type="text" 
                 className="form-control" 
@@ -15,9 +15,9 @@ function Form({filter, setFilter})
                 onChange={setFilter}
             />
             <div className="input-group-append">
-                <button className="btn btn-success" type="button">Love it</button>
+                <button className="btn btn-success" type="button">Filter</button>
             </div>
-        </div>
+        </form>
     );
 };
 
