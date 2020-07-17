@@ -1,23 +1,39 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const employees = require("./models/employees.js")
+const compression = require("compression");
 
 const PORT = process.env.PORT || 3001;
 const MONGO_URL = process.env.MONGODB_URL || "mongodb://localhost/employees";
-const app = express();
+const server = express();
 
 mongoose.connect(MONGO_URL);
+
+//compress files for Progressive Web Applications
+server.use(compression());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  server.use(express.static("client/build"));
 }
+
+// Sets up the Express app to handle data parsing
+server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
+
+server.get("/employees/:filter", (req, res) => {
+  employees.find().then(collections => {
+    res.json(collections);
+  })
+});
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+server.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
+server.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
