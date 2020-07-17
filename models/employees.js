@@ -23,10 +23,6 @@ const EmployeeSchema = new Schema(
             trim: true,
             required: "Last Name Is Required"
         },
-        fullname: {
-            type: String,
-            default: `${this.firstname} ${this.lastname}`
-        },
         department: {
             type: String,
             trim: true,

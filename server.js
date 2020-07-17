@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const employees = require("./models/employees.js")
 const compression = require("compression");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGODB_URL || "mongodb://localhost/employees";
 const server = express();
 
