@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import Form from "../components/Form.js";
 import Wrapper from "../components/Wrapper.js";
 import Table from "../components/Table.js";
-import Navbar from "../components/Navbar.js";
 
 
 function Main()
@@ -12,7 +11,6 @@ function Main()
 
     return(
         <Wrapper>
-            <Navbar />
             <Form filter={filter} setFilter={event => setFilter(event.target.value)}/>
             <Table />
         </Wrapper>
