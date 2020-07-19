@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const employees = require("./models/employees.js")
 const compression = require("compression");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const MONGO_URL = process.env.MONGODB_URL || "mongodb://localhost/employees";
 const server = express();
 
@@ -22,8 +22,14 @@ if (process.env.NODE_ENV === "production") {
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
+server.get("/employees", (req, res) => {
+  employees.find({}).then(collections => {
+    res.json(collections);
+  });
+});
+
 server.get("/employees/:filter", (req, res) => {
-  employees.find().then(collections => {
+  employees.find(req.params.filter).then(collections => {
     res.json(collections);
   })
 });

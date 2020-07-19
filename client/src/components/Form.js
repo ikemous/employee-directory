@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Form({filter, setFilter})
 {
     return (
-        <form className="input-group">
+        <form className="input-group" action={"/employees"}>
             <input 
                 type="text" 
                 className="form-control" 
@@ -15,7 +16,14 @@ function Form({filter, setFilter})
                 onChange={setFilter}
             />
             <div className="input-group-append">
-                <button className="btn btn-success" type="button">Filter</button>
+                <Link 
+                    className="btn btn-success"
+                    type="button"
+                    to="/employees"
+                    href="/employees"
+                >
+                    Filter
+                </Link>
             </div>
         </form>
     );

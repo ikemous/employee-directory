@@ -10,8 +10,38 @@ const employeeInformationSeed= [
     {
         firstname: "Ike",
         lastname: "barranco",
-        department: "Boss",
+        department: "Intern",
         pay: 20000
+    },
+    {
+        firstname: "Fred",
+        lastname: "Jones",
+        department: "Management",
+        pay: 65000
+    },
+    {
+        firstname: "Velma",
+        lastname: "Dinkly",
+        department: "Investigation",
+        pay: 65000
+    },
+    {
+        firstname: "Daphne",
+        lastname: "Blake",
+        department: "Investigation",
+        pay: 100000
+    },
+    {
+        firstname: "Scoobert",
+        lastname: "Doo",
+        department: "Chef",
+        pay: 10000
+    },
+    {
+        firstname: "Shaggy",
+        lastname: "Rogers",
+        department: "Chef",
+        pay: 10000
     }
 ];
 
