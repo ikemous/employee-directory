@@ -17,6 +17,7 @@ const employeeInformationSeed= [
         firstname: "Fred",
         lastname: "Jones",
         department: "Management",
+        manager: true,
         pay: 65000
     },
     {

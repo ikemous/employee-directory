@@ -8,7 +8,8 @@ import Axios from "axios";
 function Main()
 {
     const [filter, setFilter] = useState("");
-    // const [query, setQuery] = useState(`/employees`);
+    const [query, setQuery] = useState("/employees");
+    const [category, setCategory] = useState("");
     const [employees, setEmployees] = useState([
         {
             id: 0,
@@ -21,17 +22,37 @@ function Main()
 
     useEffect(() => {
         Axios({
-            url:"/employees",
+            url: query,
             method:"GET"
         }).then(collections => {
             setEmployees(collections.data);
         }).catch(error => console.log(error));
-    }, [filter]);  
+    }, [query]);
     
+    const submitHandler = event => {
+        event.preventDefault();
+        console.log("submited");
+        if(filter && category)
+        {
+            setQuery(`/employees/${category}/${filter}`);
+            setFilter("");
+            setCategory("");
+            return;
+        }
+        setQuery(`/employees`);
+
+    };
+
     return(
         
         <Wrapper>
-            <Form filter={filter} setFilter={event => setFilter(event.target.value)} />
+            <Form 
+                filter={filter} 
+                setFilter={event => setFilter(event.target.value)} 
+                category={category} 
+                setCategory={event => setCategory(event.target.value)}
+                submitHandler={submitHandler}
+            />
             <Table employees={employees} />
         </Wrapper>
     );

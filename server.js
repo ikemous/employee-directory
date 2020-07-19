@@ -28,8 +28,9 @@ server.get("/employees", (req, res) => {
   });
 });
 
-server.get("/employees/:filter", (req, res) => {
-  employees.find(req.params.filter).then(collections => {
+server.get("/employees/:category/:filter", ({params}, res) => {
+  employees.find({[params.category]: params.filter}).then(collections => {
+    console.log(collections);
     res.json(collections);
   })
 });
