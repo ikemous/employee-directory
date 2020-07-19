@@ -14,7 +14,6 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
                 <option></option>
                 <option>department</option>
                 <option>pay</option>
-                <option>manager</option>
             </select>
             {(category)?
             <input 

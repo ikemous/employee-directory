@@ -3,20 +3,22 @@ import Form from "../components/Form.js";
 import Wrapper from "../components/Wrapper.js";
 import Table from "../components/Table.js";
 import Axios from "axios";
+import { set } from "mongoose";
 
 
 function Main()
 {
     const [filter, setFilter] = useState("");
+    const [sort, setSort] = useState();
     const [query, setQuery] = useState("/employees");
     const [category, setCategory] = useState("");
     const [employees, setEmployees] = useState([
         {
             id: 0,
-            firstname: "",
-            lastname: "",
-            department: "",
-            pay: ""
+            firstname: "TempFirstName",
+            lastname: "TempLastName",
+            department: "Temp Department",
+            pay: 0
         }
     ]);
 
@@ -28,15 +30,23 @@ function Main()
             setEmployees(collections.data);
         }).catch(error => console.log(error));
     }, [query]);
+
+    useEffect(() => {
+        if(sort)
+        {
+            Axios({
+                url: `${query}/sort/${sort}`,
+                method:"GET"
+            }).then(collections => {
+                setEmployees(collections.data);
+            }).catch(error => console.log(error));
+        }
+    }, [sort]);
     
     const submitHandler = event => {
-        event.preventDefault();
-        console.log("submited");
         if(filter && category)
         {
             setQuery(`/employees/${category}/${filter}`);
-            setFilter("");
-            setCategory("");
             return;
         }
         setQuery(`/employees`);
@@ -44,7 +54,6 @@ function Main()
     };
 
     return(
-        
         <Wrapper>
             <Form 
                 filter={filter} 
@@ -53,7 +62,10 @@ function Main()
                 setCategory={event => setCategory(event.target.value)}
                 submitHandler={submitHandler}
             />
-            <Table employees={employees} />
+            <Table 
+                employees={employees} 
+                setSort={event => setSort(event.target.name)}
+            />
         </Wrapper>
     );
 };

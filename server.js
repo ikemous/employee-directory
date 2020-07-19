@@ -28,12 +28,24 @@ server.get("/employees", (req, res) => {
   });
 });
 
+server.get("/employees/sort/:sortName", ({params}, res) => {
+  employees.find({}).sort({[params.sortName]: 1}).then(collections => {
+    res.json(collections);
+  });
+});
+
 server.get("/employees/:category/:filter", ({params}, res) => {
   employees.find({[params.category]: params.filter}).then(collections => {
-    console.log(collections);
     res.json(collections);
   })
 });
+
+server.get("/employees/:category/:filter/sort/:sortName", ({params}, res) => {
+  employees.find({[params.category]: params.filter}).sort({[params.sortName]: 1}).then(collections => {
+    res.json(collections);
+  });
+});
+
 
 // Send every request to the React app
 // Define any API routes before this runs

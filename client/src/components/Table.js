@@ -1,18 +1,33 @@
 import React from "react";
 import EmployeeRow from "./EmployeeRow.js";
+import SortButton from "./SortButton.js";
 
-function Table({employees})
+function Table({employees, setSort, sortHandler})
 {   
     return (
         <>
             <table className="table">
                 <thead>
                     <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Pay</th>
-                    <th scope="col">Department</th>
-                    <th scope="col">Manager</th>
+                    <th scope="col">
+                        First Name
+                        <SortButton sortName="firstname" icon="alpha" setSort={setSort} sortHandler={sortHandler}/>
+                    </th>
+                    <th scope="col">
+                        Last Name
+                        <SortButton sortName="lastname" icon="alpha"  setSort={setSort} />
+                    </th>
+                    <th scope="col">
+                        Pay 
+                       <SortButton sortName="pay" icon="numeric" setSort={setSort} />
+                    </th>
+                    <th scope="col">
+                        Department
+                        <SortButton sortName="department" icon="alpha" setSort={setSort} />
+                    </th>
+                    <th scope="col">
+                        Manager
+                    </th>
                     </tr>
                 </thead>
                 <tbody>
