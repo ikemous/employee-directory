@@ -5,10 +5,10 @@ const employees = require("./models/employees.js")
 const compression = require("compression");
 
 const PORT = process.env.PORT || 8080;
-const MONGO_URL = process.env.MONGODB_URL || "mongodb://localhost/employees";
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost/employees";
 const server = express();
 
-mongoose.connect(MONGO_URL);
+mongoose.connect(MONGODB_URL);
 
 //compress files for Progressive Web Applications
 server.use(compression());
