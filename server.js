@@ -17,9 +17,6 @@ mongoose.connection.on('connected', () => {
   console.log("!!!!!!!!!!!!!!!!!! Connected!!!!!!!!!!!!!");
 });
 
-//Read123
-//employeeReader
-
 //compress files for Progressive Web Applications
 server.use(compression());
 
@@ -33,9 +30,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
 server.get("/employees", (req, res) => {
-  console.log("Made it one");
   employeeinformations.find({}).then(collections => {
-    console.log(collections);
     res.json(collections);
   });
 });
