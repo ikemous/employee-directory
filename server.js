@@ -1,14 +1,24 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const employees = require("./models/employees.js")
+const employeeinformations = require("./models/employees.js");
 const compression = require("compression");
 
 const PORT = process.env.PORT || 8080;
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost/employees";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/employees";
 const server = express();
 
-mongoose.connect(MONGODB_URL);
+mongoose.connect(MONGODB_URI,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', () => {
+  console.log("!!!!!!!!!!!!!!!!!! Connected!!!!!!!!!!!!!");
+});
+
+//Read123
+//employeeReader
 
 //compress files for Progressive Web Applications
 server.use(compression());
@@ -23,25 +33,27 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
 server.get("/employees", (req, res) => {
-  employees.find({}).then(collections => {
+  console.log("Made it one");
+  employeeinformations.find({}).then(collections => {
+    console.log(collections);
     res.json(collections);
   });
 });
 
 server.get("/employees/sort/:sortName", ({params}, res) => {
-  employees.find({}).sort({[params.sortName]: 1}).then(collections => {
+  employeeinformations.find({}).sort({[params.sortName]: 1}).then(collections => {
     res.json(collections);
   });
 });
 
 server.get("/employees/:category/:filter", ({params}, res) => {
-  employees.find({[params.category]: params.filter}).then(collections => {
+  employeeinformations.find({[params.category]: params.filter}).then(collections => {
     res.json(collections);
   })
 });
 
 server.get("/employees/:category/:filter/sort/:sortName", ({params}, res) => {
-  employees.find({[params.category]: params.filter}).sort({[params.sortName]: 1}).then(collections => {
+  employeeinformations.find({[params.category]: params.filter}).sort({[params.sortName]: 1}).then(collections => {
     res.json(collections);
   });
 });
