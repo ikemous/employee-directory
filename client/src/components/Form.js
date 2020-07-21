@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Form({filter, setFilter, category, setCategory, submitHandler})
 {
     return (
-        <div className="input-group">
+        <div className="input-group row">
             <select 
                 className="custom-select mr-sm-2"
                 name="category"
@@ -20,8 +20,8 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
                 type="text" 
                 className={"form-control"} 
                 placeholder="Filter Value..." 
-                aria-label="" 
-                aria-describedby="basic-addon1"
+                aria-label="enabledFilter" 
+                aria-describedby="enabledFilter"
                 name="filter"
                 value={filter}
                 onChange={setFilter}
@@ -30,8 +30,8 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
                 type="text" 
                 className={"form-control"} 
                 placeholder="Filter Value..." 
-                aria-label="" 
-                aria-describedby="basic-addon1" 
+                aria-label="disabledForm" 
+                aria-describedby="disabledFilter" 
                 name="filter"
                 value={filter}
                 onChange={setFilter}
@@ -43,6 +43,7 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
                     onClick={submitHandler}
                     className="btn btn-success"
                     type="button"
+                    aria-label="filterButton" 
                     to={(category)?`/employees/${category}/${filter}`: "/employees"}
                 >
                     Filter

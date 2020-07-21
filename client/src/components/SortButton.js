@@ -1,13 +1,13 @@
 import React from "react";
 
-function SortButton({sortName, icon, setSort,sortHandler})
+function SortButton({sortName, icon, setSort})
 {
     return (
         <button 
             type="button" 
             name={sortName}
+            aria-label={sortName + "Button"} 
             onClick={setSort}
-            aria-hidden="true"
             className={`fa fa-sort-${icon}-asc`}
         >
         </button>

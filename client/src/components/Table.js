@@ -5,7 +5,7 @@ import SortButton from "./SortButton.js";
 function Table({employees, setSort, sortHandler})
 {   
     return (
-        <>
+        <div className="row">
             <table className="table">
                 <thead>
                     <tr>
@@ -39,7 +39,7 @@ function Table({employees, setSort, sortHandler})
                 </tbody>
             </table>
             
-        </>
+        </div>
     );
 };
 
