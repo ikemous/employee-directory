@@ -11,12 +11,14 @@ const employeeInformationSeed= [
         "firstname": "Eevee",
         "lastname": "Barranco",
         "department": "Management",
+        "manager": true,
         "pay": 190000
     },
     {
         "firstname": "Mike Tyson",
         "lastname": "Barranco",
         "department": "Management",
+        "manager": true,
         "pay": 190000
     },
     {
@@ -66,6 +68,7 @@ const employeeInformationSeed= [
         "firstname": "Seto",
         "lastname": "Kaiba",
         "department": "Management",
+        "manager": true,
         "pay": 150000
     },
     {
@@ -84,12 +87,14 @@ const employeeInformationSeed= [
         "firstname": "Yami",
         "lastname": "Yugi",
         "department": "Management",
+        "manager": true,
         "pay": 50000
     },
     {
         "firstname": "Yusei",
         "lastname": "Fudo",
         "department": "Management",
+        "manager": true,
         "pay": 80000
     },
     {
@@ -102,6 +107,7 @@ const employeeInformationSeed= [
         "firstname": "Erina",
         "lastname": "Nakiri",
         "department": "Management",
+        "manager": true,
         "pay": 200000
     },
     {
@@ -120,12 +126,14 @@ const employeeInformationSeed= [
         "firstname": "Satoshi",
         "lastname": "Isshki",
         "department": "Management",
+        "manager": true,
         "pay": 25000
     },
     {
         "firstname": "Sōma",
         "lastname": "Yukihira",
         "department": "Management",
+        "manager": true,
         "pay": 50000
     },
     {
@@ -144,6 +152,7 @@ const employeeInformationSeed= [
         "firstname": "Grunkle",
         "lastname": "Stan",
         "department": "Management",
+        "manager": true,
         "pay": 120000
     },
     {
@@ -174,6 +183,7 @@ const employeeInformationSeed= [
         "firstname": "Karen",
         "lastname": "Vick",
         "department": "Management",
+        "manager": true,
         "pay": 160000
     },
     {
