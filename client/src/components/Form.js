@@ -17,7 +17,7 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
                 <option>department</option>
                 <option>pay</option>
             </select>
-            <div className="col-sm-1" />
+            <div className="col-sm-1"></div>
             {(category)?
             <input 
                 type="text" 
