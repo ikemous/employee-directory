@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Form({filter, setFilter, category, setCategory, submitHandler})
 {
     return (
-        <div className="input-group row">
+        <div className="input-group row" style={{marginLeft: 0}}>
             <select 
-                className="custom-select col-sm-6"
+                className="custom-select col-sm-5"
                 name="category"
                 value={category}
                 aria-label="selectInput" 
@@ -17,10 +17,11 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
                 <option>department</option>
                 <option>pay</option>
             </select>
+            <div className="col-sm-1" />
             {(category)?
             <input 
                 type="text" 
-                className="form-control col-sm-6"
+                className="form-control col-sm-5"
                 placeholder="Filter Value..." 
                 aria-label="enabledFilter" 
                 aria-describedby="enabledFilter"
@@ -30,7 +31,7 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
             />:
             <input 
                 type="text" 
-                className="form-control col-sm-6" 
+                className="form-control col-sm-5" 
                 placeholder="Filter Value..." 
                 aria-label="disabledForm" 
                 aria-describedby="disabledFilter" 
