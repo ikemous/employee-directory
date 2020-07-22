@@ -6,7 +6,7 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
     return (
         <div className="input-group row">
             <select 
-                className="custom-select mr-sm-2"
+                className="custom-select col-sm-6"
                 name="category"
                 value={category}
                 aria-label="selectInput" 
@@ -20,7 +20,7 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
             {(category)?
             <input 
                 type="text" 
-                className={"form-control"} 
+                className="form-control col-sm-6"
                 placeholder="Filter Value..." 
                 aria-label="enabledFilter" 
                 aria-describedby="enabledFilter"
@@ -30,7 +30,7 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
             />:
             <input 
                 type="text" 
-                className={"form-control"} 
+                className="form-control col-sm-6" 
                 placeholder="Filter Value..." 
                 aria-label="disabledForm" 
                 aria-describedby="disabledFilter" 

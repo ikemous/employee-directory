@@ -54,7 +54,7 @@ function Main()
 
     return(
         <Suspense fallback={<h2>Loading Employee Form and Table</h2>} >
-            <Wrapper >
+            <Wrapper>
                 <Form 
                     filter={filter} 
                     setFilter={event => setFilter(event.target.value)} 
@@ -65,6 +65,7 @@ function Main()
                 <Table 
                     employees={employees} 
                     setSort={event => setSort(event.target.name)}
+                    className="row justify-content-center"
                 />
             </Wrapper>
         </Suspense>
