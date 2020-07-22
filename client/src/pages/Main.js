@@ -4,7 +4,6 @@ import Wrapper from "../components/Wrapper.js";
 import Table from "../components/Table.js";
 import Axios from "axios";
 
-
 function Main()
 {
     const [filter, setFilter] = useState("");

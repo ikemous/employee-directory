@@ -5,6 +5,7 @@ import Main from "./pages/Main.js"
 import Navbar from "./components/Navbar.js";
 
 
+
 function App()
 {
   return (
@@ -12,7 +13,7 @@ function App()
       <Navbar />
       <Route path="/" component={Main}/>
     </Router>
-  )
-}
+  );
+};
 
 export default App;
