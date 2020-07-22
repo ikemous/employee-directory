@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Suspense} from "react";
 import Form from "../components/Form.js";
-import Wrapper from "../components/Wrapper.js";
+// import Wrapper from "../components/Wrapper.js";
 import Table from "../components/Table.js";
 import Axios from "axios";
+const Wrapper = React.lazy(() => import("../components/Wrapper.js"))
 
 function Main()
 {
@@ -52,19 +53,22 @@ function Main()
     };
 
     return(
-        <Wrapper>
-            <Form 
-                filter={filter} 
-                setFilter={event => setFilter(event.target.value)} 
-                category={category} 
-                setCategory={event => setCategory(event.target.value)}
-                submitHandler={submitHandler}
-            />
-            <Table 
-                employees={employees} 
-                setSort={event => setSort(event.target.name)}
-            />
-        </Wrapper>
+        <Suspense fallback={<h2>Loading Employee Form and Table</h2>} >
+            <Wrapper >
+                <Form 
+                    filter={filter} 
+                    setFilter={event => setFilter(event.target.value)} 
+                    category={category} 
+                    setCategory={event => setCategory(event.target.value)}
+                    submitHandler={submitHandler}
+                />
+                <Table 
+                    employees={employees} 
+                    setSort={event => setSort(event.target.name)}
+                />
+            </Wrapper>
+        </Suspense>
+        
     );
 };
 

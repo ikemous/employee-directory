@@ -3,7 +3,7 @@ import React from "react";
 function Wrapper({children})
 {
     return(
-        <div className="container">
+        <div className="container" style={{marginTop:15}}>
             {children}
         </div>
     )

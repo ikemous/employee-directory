@@ -9,6 +9,8 @@ function Form({filter, setFilter, category, setCategory, submitHandler})
                 className="custom-select mr-sm-2"
                 name="category"
                 value={category}
+                aria-label="selectInput" 
+                aria-describedby="selectInput"
                 onChange={setCategory}
             >
                 <option></option>
